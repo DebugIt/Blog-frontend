@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.out-text{
+    color: white;
+    -webkit-text-stroke: 1px black;
+}

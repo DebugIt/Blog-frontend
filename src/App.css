@@ -1,0 +1,9 @@
+@keyframes fillText {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    .animate-welcome-fill {
+        animation: fillText 2s ease-in-out;
+    }
+
