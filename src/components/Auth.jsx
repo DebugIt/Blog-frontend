@@ -92,20 +92,20 @@ const Auth = () => {
 
   const getUsertoken = localStorage.getItem("tokenGlobe")
 
-  // const checkForUser = async() => {
-  //   if (!getUsertoken){
-  //     navigate("/");
-  //   }
-  //   else{
-  //     navigate("/home")
-  //     toast.success("Welcome Back!", {
-  //       position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, theme: "colored",
-  //     }); 
-  //   }
-  // }
+  const checkForUser = async() => {
+    if (!getUsertoken){
+      navigate("/");
+    }
+    else{
+      navigate("/home")
+      toast.success("Welcome Back!", {
+        position: "top-right", autoClose: 2000, hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, theme: "colored",
+      }); 
+    }
+  }
 
   useEffect(() => {
-    // checkForUser()
+    checkForUser()
   }, [])
   
 
