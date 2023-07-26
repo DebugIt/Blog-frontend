@@ -90,12 +90,12 @@ const Createpost = () => {
   return (
     <>
         <div id="container">
-            <div className='flex gap-2 my-8 text-2xl font-semibold justify-center'>
+            <div className='flex gap-2 my-8 mx-2 md:text-2xl font-semibold justify-center'>
                 <BiArrowBack size={30} onClick={() => navigate(-1)}/>
                 <h1 className=''>Share your unique experience </h1><SiYourtraveldottv size={30} />
             </div>
             {/*  */}
-            <div id="formContainer" className='flex justify-center'>
+            <div id="formContainer" className='flex justify-center mx-5'>
                 <div id="" className='grid'>
                     <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="text" name='title' value={inputs.title} onChange={handleChange} placeholder='Enter Title'/>
                     <textarea className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' rows="4" cols="50" placeholder='Share your story...' name='content' value={inputs.content} onChange={handleChange}></textarea>
