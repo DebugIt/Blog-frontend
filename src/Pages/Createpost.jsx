@@ -20,6 +20,7 @@ const Createpost = () => {
     })
     const handleChange = (e) => {
         setInputs((prevState) => ({...prevState, [e.target.name]:e.target.value}))
+        // console.log(inputs.imageUrl);
     }
 
     const navigate = useNavigate();
@@ -33,7 +34,7 @@ const Createpost = () => {
             date:inputs.date,
             user:localStorage.getItem('Globeuser_id')
         }).catch(error => console.log(error));
-
+        
         if(res.status === 200){
             const resData = await res.data;
             toast.success("Post Created", {theme:"colored"})
@@ -99,8 +100,8 @@ const Createpost = () => {
                 <div id="" className='grid'>
                     <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="text" name='title' value={inputs.title} onChange={handleChange} placeholder='Enter Title'/>
                     <textarea className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' rows="4" cols="50" placeholder='Share your story...' name='content' value={inputs.content} onChange={handleChange}></textarea>
-                    <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="text" placeholder='Enter Location' name='location' value={inputs.location} onChange={handleChange}/>
-                    <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="text" placeholder='Enter Image Url' name='imageUrl' value={inputs.imageUrl} onChange={handleChange}/>
+                    <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="text" placeholder='Enter Location' name='location' value={inputs.location} onChange={(e) => handleChange(e.target.files[0])}/>
+                    <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="file" placeholder='Enter Image Url' name='imageUrl' value={inputs.imageUrl} onChange={handleChange}/>
                     <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="text" value={localStorage.getItem("Globeuser_id")} disabled placeholder='Enter user'/>                
                     <input className='border py-2 px-3 my-1 rounded focus:border-b-2 focus:border-black focus:outline-none' type="date" name='date' value={inputs.date} onChange={handleChange}/>                
                     <button className='px-3 my-1 rounded border bg-[#252525] text-gray-100 py-3 hover:bg-[#141414] transition ease-in-out duration-300' onClick={handleSubmit}>Post</button>
